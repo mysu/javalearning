@@ -1,22 +1,29 @@
 
 import java.util.Scanner;
 
-class AplicacionEstudiantes {
+class AplicacionEstudiantes{
+
     public static void main (String[] arguments){
-        Notaestudiantes alumno =new Notaestudiantes () ;
-        Scanner digite = new Scanner(System.in);
-        float alumnos [] []= new float [2][5];
-        for (int c=0;c<2;c++){
-            System.out.println("Digite las notas del alumno "+(c+1));
-            for(int n=0;n<5;n++){
-                alumnos[c][n]=digite.nextFloat();
-                alumno.nota[c]=alumnos[c][n]+alumno.nota[c];
+        Notaestudiantes alum = new Notaestudiantes() ;
+        Scanner digite = new Scanner (System.in );
+        
+        for(int a=0;a<2;a++){
+            System.out.println("Digite las notas del alumno "+(a+1));
+            for(int n=0;n<3;n++){
+                alum.alumnos[a][n] =digite.nextFloat();
             }
         }
-        for(int c=0;c<2;c++){
-            alumno.nota[c]=alumno.nota[c]/5;
+        System.out.println("\n---------------\n");
+        alum.comprobarnotas();
+        System.out.println("\n---------------\n");
+        for(int a=0;a<2;a++){
+            for (int n=0;n<3;n++){
+                alum.notas[a]=alum.alumnos[a][n]+alum.notas[a];
+            }
+            alum.notas[a]=alum.notas[a]/3;
         }
-        alumno.comprobarnotas();
-       alumno.mostraratributos();
+         alum.suma();
+        System.out.println("\n-------------\n");
+        alum.comprobarnotas2();
     }
 }
